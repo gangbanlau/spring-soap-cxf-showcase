@@ -31,10 +31,10 @@ public class HelloWorldServiceImpl implements IHelloWorldService {
 	}
 
 	@Override
-	public String saveUser(User user) {
-		logger.info("Execute saveUser!");
+	public String addUser(User user) {
+		logger.info("Execute addUser!");
 		
-		return this.helloWorldDAO.saveUser(user);
+		return this.helloWorldDAO.addUser(user);
 	}
 
 }

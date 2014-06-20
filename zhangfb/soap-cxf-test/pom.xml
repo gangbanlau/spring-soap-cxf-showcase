@@ -9,7 +9,7 @@
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
 		<java-version>1.6</java-version>
-		<org.springframework-version>3.1.1.RELEASE</org.springframework-version>
+		<org.springframework-version>3.2.7.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
@@ -30,6 +30,16 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
 				
@@ -117,6 +127,13 @@
 			<scope>test</scope>
 		</dependency>
 		
+		<!-- mysql -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.8</version>
+		</dependency>
+		
 		<!-- CXF -->
 		<dependency>
 		 	<groupId>org.apache.cxf</groupId>
@@ -128,8 +145,21 @@
 			<artifactId>cxf-rt-transports-http</artifactId>
 			<version>2.7.11</version>
 		</dependency>
-		
 	</dependencies>
+	
+	<profiles>
+		<profile>
+			<id>dev-mysql</id>
+			<properties>
+				<environment>dev-mysql</environment>
+				<database.driverClassName>com.mysql.jdbc.Driver</database.driverClassName>
+				<database.url>jdbc:mysql://localhost:3306/test</database.url>
+				<database.user>development_user</database.user>
+				<database.password>development_password</database.password>
+			</properties>
+		</profile>		
+	</profiles>
+	
     <build>
         <plugins>
             <plugin>
@@ -167,5 +197,16 @@
                 </configuration>
             </plugin>
         </plugins>
+        
+        <resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/resources-${environment}</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
     </build>
 </project>

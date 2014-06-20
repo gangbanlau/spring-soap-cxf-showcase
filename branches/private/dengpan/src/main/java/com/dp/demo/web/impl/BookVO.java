@@ -1,4 +1,4 @@
-package com.dp.demo.domain;
+package com.dp.demo.web.impl;
 
 import java.io.Serializable;
 
@@ -7,7 +7,6 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "Book")
-@XmlAccessorType(XmlAccessType.FIELD)
 public class BookVO implements Serializable {
 	private static final long serialVersionUID = 1L;
 

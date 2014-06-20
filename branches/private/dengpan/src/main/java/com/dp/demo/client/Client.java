@@ -2,7 +2,7 @@ package com.dp.demo.client;
 
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 
-import com.dp.demo.service.HelloWorld;
+import com.dp.demo.web.HelloWorld;
 
 public class Client {
 	

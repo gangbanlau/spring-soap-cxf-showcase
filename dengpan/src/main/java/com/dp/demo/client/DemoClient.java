@@ -2,8 +2,8 @@ package com.dp.demo.client;
 
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 
-import com.dp.demo.domain.BookVO;
-import com.dp.demo.service.BookShelfService;
+import com.dp.demo.web.impl.BookVO;
+import com.dp.demo.web.BookShelfService;
 
 public class DemoClient {
 	
@@ -57,5 +57,6 @@ public class DemoClient {
 		         System.out.println("book name : " + bookVO.getBookName());
 
 		         System.out.println("book author : " + bookVO.getAuthor());
+		         System.out.println("book id : " + bookVO.getBookId());
 	 }
 }

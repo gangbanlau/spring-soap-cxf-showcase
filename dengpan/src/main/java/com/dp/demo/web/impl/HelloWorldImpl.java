@@ -17,13 +17,17 @@
  * under the License.
  */
 // START SNIPPET: service
-package com.dp.demo.service;
+package com.dp.demo.web.impl;
 
-import javax.jws.WebParam;
-import javax.jws.WebService;
 
-@WebService
-public interface HelloWorld {
-	 public String sayHello(@WebParam(name="name") String name);  
+import com.dp.demo.web.HelloWorld;
+
+public class HelloWorldImpl implements HelloWorld {
+
+	 @Override  
+	    public String sayHello(String name) {  
+	        System.out.println(name+"say hello");  
+	        return "Hello "+name+",This is WebService world.";  
+	    } 
 }
 // END SNIPPET: service

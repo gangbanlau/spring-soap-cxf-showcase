@@ -3,7 +3,7 @@ package com.maingel.soap.client;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.maingel.soap.service.IHelloWorld;
+import com.maingel.soap.web.IHelloWorld;
 
 public final class Client {
     private Client() {

@@ -1,4 +1,4 @@
-package com.maingel.soap.service;
+package com.maingel.soap.web;
 
 import javax.jws.WebService;
 

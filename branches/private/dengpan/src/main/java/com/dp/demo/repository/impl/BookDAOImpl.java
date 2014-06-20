@@ -60,7 +60,7 @@ private static final Logger logger=LoggerFactory.getLogger(BookDAOImpl.class);
 				return b;
 			}
 		});
-    	return details.size()>1?details.get(0):null;
+    	return details.size()>=1?details.get(0):null;
     	
     }
     

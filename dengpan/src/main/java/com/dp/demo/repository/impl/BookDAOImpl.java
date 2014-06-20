@@ -32,10 +32,17 @@ private static final Logger logger=LoggerFactory.getLogger(BookDAOImpl.class);
     @Override
     public String insertBook(Book b){
     	logger.info("execute insertBook");
-    	String sql="INSERT INTO book(book_name,author) VALUES(?,?) ";
+    	String sql="INSERT  INTO book(book_name,author) VALUES(?,?) ";
     	this.jdbcTemplate.update(sql, new Object[]{b.getBookName(),b.getAuthor()});
     	return "success";
     	
+    }
+    @Override
+    public void deleteBook(String bookname){
+    	logger.info("execute deleteBook");
+    	String sql="DELETE FROM book WHERE book_name=?";
+    	this.jdbcTemplate.update(sql, new Object[]{bookname});
+   	
     }
     @Override
     public Book queryBook(String bookname){

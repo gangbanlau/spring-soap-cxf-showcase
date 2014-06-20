@@ -8,4 +8,6 @@ public interface IBookDAO {
 
 	public Book queryBook(String bookname);
 
+	public void deleteBook(String bookname);
+
 }

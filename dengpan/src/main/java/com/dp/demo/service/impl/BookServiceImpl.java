@@ -20,6 +20,7 @@ public class BookServiceImpl implements IBookService{
 	   @Override
 	    public String insertBook(Book b){
 	    	logger.info("execute insertBook");
+	    	this.bookdao.deleteBook(b.getBookName());
 	    	return this.bookdao.insertBook(b);
 	   }
 	

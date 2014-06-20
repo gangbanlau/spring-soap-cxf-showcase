@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.maingel.soap.domain.User;
 import com.maingel.soap.repository.IHelloWorldDAO;
 import com.maingel.soap.service.IHelloWorldService;
 
@@ -20,6 +21,20 @@ public class HelloWorldServiceImpl implements IHelloWorldService {
 		logger.info("Execute sayHi!");
 		
 		return this.helloWorldDAO.sayHi(text);
+	}
+
+	@Override
+	public User findUserById(long id) {
+		logger.info("Execute findUserById!");
+		
+		return this.helloWorldDAO.findUserById(id);
+	}
+
+	@Override
+	public String saveUser(User user) {
+		logger.info("Execute saveUser!");
+		
+		return this.helloWorldDAO.saveUser(user);
 	}
 
 }

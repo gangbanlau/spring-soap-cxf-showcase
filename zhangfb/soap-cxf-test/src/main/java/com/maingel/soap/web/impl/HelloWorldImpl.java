@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.maingel.soap.domain.User;
 import com.maingel.soap.service.IHelloWorldService;
 import com.maingel.soap.web.IHelloWorld;
 
@@ -23,5 +24,19 @@ public class HelloWorldImpl implements IHelloWorld {
 		logger.info("Execute sayHi!");
 		
 		return this.helloWorldService.sayHi(text);
+	}
+	
+	@Override
+	public User findUserById(long id) {
+		logger.info("Execute findUserById!");
+		
+		return this.helloWorldService.findUserById(id);
+	}
+
+	@Override
+	public String addUser(User user) {
+		logger.info("Execute addUser!");
+		
+		return this.helloWorldService.saveUser(user);
 	}
 }

@@ -4,5 +4,5 @@ import javax.jws.WebService;
 
 @WebService
 public interface IHelloWorld {
-    String sayHi(String text);
+    public String sayHi(String text);
 }

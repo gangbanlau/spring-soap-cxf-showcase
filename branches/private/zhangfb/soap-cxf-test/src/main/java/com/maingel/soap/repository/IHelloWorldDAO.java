@@ -7,6 +7,6 @@ public interface IHelloWorldDAO {
 
 	public User findUserById(long id);
 
-	public String saveUser(User user);
+	public String addUser(User user);
 
 }

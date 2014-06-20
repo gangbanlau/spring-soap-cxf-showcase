@@ -1,17 +1,16 @@
 package com.maingel.soap.web.impl;
 
-import javax.jws.WebService;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.maingel.soap.domain.User;
 import com.maingel.soap.service.IHelloWorldService;
 import com.maingel.soap.web.IHelloWorld;
 
-@WebService(endpointInterface = "com.maingel.soap.web.IHelloWorld")
+//@WebService(endpointInterface = "com.maingel.soap.web.IHelloWorld")
 @Component(value = "helloWorldImpl")
 public class HelloWorldImpl implements IHelloWorld {
 	private static final Logger logger = LoggerFactory.getLogger(HelloWorldImpl.class);
@@ -34,9 +33,10 @@ public class HelloWorldImpl implements IHelloWorld {
 	}
 
 	@Override
+	@Transactional
 	public String addUser(User user) {
 		logger.info("Execute addUser!");
 		
-		return this.helloWorldService.saveUser(user);
+		return this.helloWorldService.addUser(user);
 	}
 }

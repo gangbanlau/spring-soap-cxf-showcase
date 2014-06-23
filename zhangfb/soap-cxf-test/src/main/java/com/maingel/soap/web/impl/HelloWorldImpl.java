@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.maingel.soap.domain.User;
 import com.maingel.soap.service.IHelloWorldService;
@@ -33,7 +32,6 @@ public class HelloWorldImpl implements IHelloWorld {
 	}
 
 	@Override
-	@Transactional
 	public String addUser(User user) {
 		logger.info("Execute addUser!");
 		

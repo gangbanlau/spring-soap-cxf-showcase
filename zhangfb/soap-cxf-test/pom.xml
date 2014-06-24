@@ -134,6 +134,14 @@
 			<version>5.1.8</version>
 		</dependency>
 		
+		<!--  hsql  -->				
+		<dependency>
+    		<groupId>org.hsqldb</groupId>
+    		<artifactId>hsqldb</artifactId>
+    		<version>2.2.9</version>
+    		<scope>runtime</scope>
+		</dependency>
+		
 		<!-- CXF -->
 		<dependency>
 		 	<groupId>org.apache.cxf</groupId>
@@ -157,7 +165,13 @@
 				<database.user>development_user</database.user>
 				<database.password>development_password</database.password>
 			</properties>
-		</profile>		
+		</profile>
+		<profile>
+            <id>dev-hsql</id>
+            <properties>
+            <environment>dev-hsql</environment>
+            </properties>
+        </profile>		
 	</profiles>
 	
     <build>

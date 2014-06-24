@@ -9,5 +9,7 @@
     <import resource="classpath:META-INF/cxf/cxf.xml"/>
     <import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
     
+    <bean id="helloWorldImpl" class="com.maingel.soap.web.impl.HelloWorldImpl" />
+    
     <jaxws:endpoint id="helloWorld" implementor="#helloWorldImpl" address="/helloWorld"/>
 </beans>

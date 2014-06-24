@@ -20,7 +20,7 @@ import com.maingel.soap.domain.User;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration(locations={"classpath*:root-context.xml", "classpath*:cxf-servlet.xml"})
+@ContextConfiguration(locations={"classpath*:root-context.xml", "classpath*:cxf-context.xml"})
 @TransactionConfiguration
 @Transactional
 public class HelloWorldImplTest {

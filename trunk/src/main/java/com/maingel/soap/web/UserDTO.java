@@ -1,10 +1,13 @@
-package com.maingel.soap.domain;
+package com.maingel.soap.web;
 
 import java.io.Serializable;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /*@XmlAccessorType(XmlAccessType.FIELD)  
 @XmlType(name = "User")*/
-public class User implements Serializable {
+@XmlRootElement(name = "User")
+public class UserDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private long id;

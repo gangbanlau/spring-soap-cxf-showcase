@@ -1,6 +1,5 @@
 package com.maingel.soap.web;
 
-import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
@@ -8,11 +7,10 @@ import javax.jws.WebService;
 import com.maingel.soap.domain.User;
 
 @WebService
-public interface IHelloWorld {
-	@WebMethod
-    public @WebResult String sayHi(@WebParam String text);
-    @WebMethod
-    public @WebResult User findUserById(@WebParam long id);
-    @WebMethod
-    public @WebResult String addUser(@WebParam User user);
+public interface IHelloWorld {	
+    public String sayHi(@WebParam(name = "text") String text);
+    
+    public @WebResult(name = "user") UserDTO findUserById(@WebParam(name = "id") long id);
+    
+    public String addUser(@WebParam(name = "user") User user);
 }

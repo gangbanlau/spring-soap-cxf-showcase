@@ -1,7 +1,5 @@
 package com.maingel.soap.web.impl;
 
-import javax.jws.WebService;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.maingel.soap.domain.User;
 import com.maingel.soap.service.IHelloWorldService;
 import com.maingel.soap.web.IHelloWorld;
+import com.maingel.soap.web.UserDTO;
 
-@WebService(endpointInterface = "com.maingel.soap.web.IHelloWorld")
+//@WebService(endpointInterface = "com.maingel.soap.web.IHelloWorld")
 //@Component(value = "helloWorldImpl")
 public class HelloWorldImpl implements IHelloWorld {
 	private static final Logger logger = LoggerFactory.getLogger(HelloWorldImpl.class);
@@ -26,10 +25,16 @@ public class HelloWorldImpl implements IHelloWorld {
 	}
 	
 	@Override
-	public User findUserById(long id) {
+	public UserDTO findUserById(long id) {
 		logger.info("Execute findUserById!");
 		
-		return this.helloWorldService.findUserById(id);
+		User u = this.helloWorldService.findUserById(id);
+		UserDTO user = new UserDTO();
+		user.setId(u.getId());
+		user.setName(u.getName());
+		user.setGender(u.getGender());
+		user.setAge(u.getAge());
+		return user;
 	}
 
 	@Override

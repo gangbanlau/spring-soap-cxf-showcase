@@ -3,8 +3,8 @@ package com.maingel.soap.client;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.maingel.soap.domain.User;
 import com.maingel.soap.web.IHelloWorld;
+import com.maingel.soap.web.UserDTO;
 
 public final class Client {
     private static ApplicationContext context;
@@ -18,7 +18,7 @@ public final class Client {
     	String res = service.sayHi("World");
     	System.out.println(res);
     	
-    	User user = service.findUserById(1);
+    	UserDTO user = service.findUserById(1);
     	System.out.println(user.getId());
     	System.out.println(user.getName());
     	System.out.println(user.getGender());

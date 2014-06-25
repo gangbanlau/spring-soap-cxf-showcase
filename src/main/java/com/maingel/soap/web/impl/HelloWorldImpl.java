@@ -1,5 +1,7 @@
 package com.maingel.soap.web.impl;
 
+import javax.jws.WebService;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +11,7 @@ import com.maingel.soap.service.IHelloWorldService;
 import com.maingel.soap.web.IHelloWorld;
 import com.maingel.soap.web.UserDTO;
 
-//@WebService(endpointInterface = "com.maingel.soap.web.IHelloWorld")
+@WebService(endpointInterface = "com.maingel.soap.web.IHelloWorld")
 //@Component(value = "helloWorldImpl")
 public class HelloWorldImpl implements IHelloWorld {
 	private static final Logger logger = LoggerFactory.getLogger(HelloWorldImpl.class);

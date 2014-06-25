@@ -1,6 +1,6 @@
 package com.maingel.soap.web;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import com.maingel.soap.domain.User;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={"classpath*:client-beans.xml"})
@@ -40,7 +38,7 @@ public class HelloWorldImplTest {
 	public void testAddUser() {
 		logger.info("Execute testAddUser!");
 				
-		User user = new User();
+		UserDTO user = new UserDTO();
 		user.setName("zhangsan");
 		user.setGender(1);
 		user.setAge(20);

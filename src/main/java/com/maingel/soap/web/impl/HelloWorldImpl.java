@@ -40,9 +40,15 @@ public class HelloWorldImpl implements IHelloWorld {
 	}
 
 	@Override
-	public String addUser(User user) {
+	public String addUser(UserDTO user) {
 		logger.info("Execute addUser!");
 		
-		return this.helloWorldService.addUser(user);
+		User u = new User();
+		user.setId(user.getId());
+		user.setName(user.getName());
+		user.setGender(user.getGender());
+		user.setAge(user.getAge());
+		
+		return this.helloWorldService.addUser(u);
 	}
 }

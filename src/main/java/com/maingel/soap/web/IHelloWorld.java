@@ -5,8 +5,6 @@ import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 
-import com.maingel.soap.domain.User;
-
 @WebService
 public interface IHelloWorld {
 	@WebMethod
@@ -14,5 +12,5 @@ public interface IHelloWorld {
     @WebMethod
     public @WebResult(name = "user") UserDTO findUserById(@WebParam(name = "id") long id);
     @WebMethod
-    public String addUser(@WebParam(name = "user") User user);
+    public String addUser(@WebParam(name = "user") UserDTO user);
 }

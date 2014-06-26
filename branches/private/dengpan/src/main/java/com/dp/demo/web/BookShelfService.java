@@ -1,5 +1,8 @@
 package com.dp.demo.web;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
@@ -16,6 +19,9 @@ public interface BookShelfService {
     public  String insertBook( BookVO bookVO);
     @WebMethod
     public  BookVO getBook( String title);
-
+    @WebMethod
+    public List<BookVO> findall();
+    @WebMethod
+    public Map<String, BookVO> findmap(Map<String, String> params);
 
 }

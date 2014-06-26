@@ -1,5 +1,9 @@
 package com.dp.demo.client;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 
 import com.dp.demo.web.impl.BookVO;
@@ -58,5 +62,20 @@ public class DemoClient {
 
 		         System.out.println("book author : " + bookVO.getAuthor());
 		         System.out.println("book id : " + bookVO.getBookId());
+		         System.out.println("=======list======");
+		         List<BookVO> all=bookService.findall();
+		         for (BookVO bookVO2 : all) {
+					System.out.println(bookVO2.getAuthor()+bookVO2.getBookName());
+				}
+		         System.out.println("========map 测试========");
+		         Map<String, String > params=new HashMap<String, String>();
+		         params.put("测试1","测试map 参数 1");
+		         params.put("测试2","测试map 参数 2");
+		         Map<String, BookVO> m=bookService.findmap(params);
+		         System.out.println(((BookVO)m.get("d2")).getBookName());
+		         System.out.println(((BookVO)m.get("d3")).getBookName());
+		         System.out.println(((BookVO)m.get("测试1")).getBookName());
+		         System.out.println(((BookVO)m.get("测试2")).getBookName());
+		         
 	 }
 }

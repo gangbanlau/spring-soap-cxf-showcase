@@ -1,4 +1,4 @@
-package com.dp.demo.web.impl;
+package com.dp.demo.web;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,7 +19,6 @@ import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 import com.dp.demo.domain.Book;
 import com.dp.demo.service.IBookService;
 import com.dp.demo.service.impl.BookServiceImpl;
-import com.dp.demo.web.BookShelfService;
 
 
 @WebService(endpointInterface = "com.dp.demo.web.BookShelfService",
@@ -84,5 +83,6 @@ public class BookShelfServiceImpl implements BookShelfService  {
     	return m;
     }
 
-
+    
+   
 }

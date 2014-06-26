@@ -1,4 +1,4 @@
-package com.dp.demo.web.impl;
+package com.dp.demo.web;
 
 import java.io.Serializable;
 

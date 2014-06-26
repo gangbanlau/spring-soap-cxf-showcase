@@ -17,12 +17,11 @@
  * under the License.
  */
 // START SNIPPET: service
-package com.dp.demo.web.impl;
+package com.dp.demo.web;
 
 
 import javax.jws.WebService;
 
-import com.dp.demo.web.HelloWorld;
 @WebService(endpointInterface="com.dp.demo.web.HelloWorld")
 public class HelloWorldImpl implements HelloWorld {
 

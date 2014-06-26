@@ -10,7 +10,6 @@ import javax.jws.soap.SOAPBinding;
 import javax.jws.soap.SOAPBinding.Style;
 
 import com.dp.demo.domain.Book;
-import com.dp.demo.web.impl.BookVO;
 
 @WebService
 public interface BookShelfService {
@@ -23,5 +22,6 @@ public interface BookShelfService {
     public List<BookVO> findall();
     @WebMethod
     public Map<String, BookVO> findmap(Map<String, String> params);
-
+    
+    
 }

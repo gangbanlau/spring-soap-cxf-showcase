@@ -2,6 +2,9 @@ package com.maingel.soap.web;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -33,6 +36,13 @@ public class HelloWorldImplTest {
 		
 		this.helloWorld.findUserById(1);
 	}
+	
+	@Test
+	public void testFindAllUser() {
+		logger.info("Execute testFindAllUser!");
+		
+		assertEquals("What size?", 2, this.helloWorld.findAllUser().size());
+	}
 
 	@Test
 	public void testAddUser() {
@@ -43,6 +53,24 @@ public class HelloWorldImplTest {
 		user.setGender(1);
 		user.setAge(20);
 		assertEquals("SUCCESS", this.helloWorld.addUser(user));
+	}
+	
+	@Test
+	public void testAddAllUser() {
+		logger.info("Execute testAddAllUser!");
+		
+		List<UserDTO> us = new ArrayList<UserDTO>();
+		UserDTO u1 = new UserDTO();
+		u1.setName("zhangsan");
+		u1.setGender(1);
+		u1.setAge(20);
+		UserDTO u2 = new UserDTO();
+		u2.setName("lisi");
+		u2.setGender(0);
+		u2.setAge(21);
+		us.add(u1);
+		us.add(u2);
+		assertEquals("SUCCESS", this.helloWorld.addAllUser(us));
 	}
 
 }

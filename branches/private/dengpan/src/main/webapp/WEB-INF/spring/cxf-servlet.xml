@@ -39,7 +39,7 @@
     <import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>  
     
     
-    <bean id="helloService" class="com.dp.demo.web.impl.HelloWorldImpl" />  
+    <bean id="helloService" class="com.dp.demo.web.HelloWorldImpl" />  
     <jaxws:endpoint id="helloWService" implementorClass="com.dp.demo.web.HelloWorld" address="/helloworld">  
         <jaxws:implementor>  
             <ref bean="helloService"/>  
@@ -48,7 +48,12 @@
     
     <jaxws:endpoint
        id="bookShelfService"
-       implementor="com.dp.demo.web.impl.BookShelfServiceImpl"
+       implementor="com.dp.demo.web.BookShelfServiceImpl"
        address="/bookshelfservice" />
+       
+       <jaxws:endpoint
+       id="userService"
+       implementor="com.dp.demo.web.UserServiceImpl"
+       address="/userservice" />
 
 </beans>  

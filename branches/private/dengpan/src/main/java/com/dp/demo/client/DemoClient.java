@@ -6,8 +6,9 @@ import java.util.Map;
 
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 
-import com.dp.demo.web.impl.BookVO;
 import com.dp.demo.web.BookShelfService;
+import com.dp.demo.web.BookVO;
+import com.dp.demo.web.UserMapVO;
 
 public class DemoClient {
 	
@@ -76,6 +77,10 @@ public class DemoClient {
 		         System.out.println(((BookVO)m.get("d3")).getBookName());
 		         System.out.println(((BookVO)m.get("测试1")).getBookName());
 		         System.out.println(((BookVO)m.get("测试2")).getBookName());
+		         
+		         
+		         
+		         
 		         
 	 }
 }

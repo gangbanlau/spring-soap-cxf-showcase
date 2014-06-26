@@ -4,3 +4,4 @@
 	的作用是指明IHelloWorld为SEI，在实现类有多个接口时使用，一个时可省略。
 3.	@WebMethod，@WebParam，@WebResult这三个是写在接口上的，如果需要指定如参数名，返回值等可使用，不是必须的。
 4.	关于WSDL文件，其中有<wsdl:import>标签，输入location可以进入下一层。
+5.	关于第四点，是因为java代码的web service层分多了impl层，应将接口和实现类放在同一层，即可是wsdl在同一文件中。

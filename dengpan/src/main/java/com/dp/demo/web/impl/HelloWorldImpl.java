@@ -20,8 +20,10 @@
 package com.dp.demo.web.impl;
 
 
-import com.dp.demo.web.HelloWorld;
+import javax.jws.WebService;
 
+import com.dp.demo.web.HelloWorld;
+@WebService(endpointInterface="com.dp.demo.web.HelloWorld")
 public class HelloWorldImpl implements HelloWorld {
 
 	 @Override  

@@ -1,5 +1,9 @@
 package com.dp.demo.web;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.junit.Assert;
 import org.junit.Test;
@@ -60,6 +64,41 @@ public class BookWebServiceTest {
            Assert.assertEquals("Foundation and Earth", bookVO.getBookName());
 	}
 	
+	@Test
+	public void testquerylist(){
+		logger.info("execute testquerylist");
+        String serviceUrl = "http://localhost:8080/demo/wservices/bookshelfservice";
+        JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();
+        factory.setServiceClass(BookShelfService.class);
+        factory.setAddress(serviceUrl);
+        BookShelfService bookService = (BookShelfService) factory.create();
+        List<BookVO> all=bookService.findall();
+        for (BookVO bookVO2 : all) {
+			System.out.println(bookVO2.getAuthor()+bookVO2.getBookName());
+		}
+      Assert.assertEquals("测试返回list！", all.get(0).getBookName());
+		
+	}
+	 
+	@Test
+	public void testquerymap(){
+		logger.info("execute testquerymap");
+        String serviceUrl = "http://localhost:8080/demo/wservices/bookshelfservice";
+        JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();
+        factory.setServiceClass(BookShelfService.class);
+        factory.setAddress(serviceUrl);
+        BookShelfService bookService = (BookShelfService) factory.create();
+        Map<String, String > params=new HashMap<String, String>();
+        params.put("测试1","测试map 参数 1");
+        params.put("测试2","测试map 参数 2");
+        Map<String, BookVO> m=bookService.findmap(params);
+        System.out.println(((BookVO)m.get("d2")).getBookName());
+        System.out.println(((BookVO)m.get("d3")).getBookName());
+        System.out.println(((BookVO)m.get("测试1")).getBookName());
+        System.out.println(((BookVO)m.get("测试2")).getBookName());
+        
+      Assert.assertEquals("测试map 参数 1", ((BookVO)m.get("测试1")).getBookName());		
+	}
 	
 	
 }

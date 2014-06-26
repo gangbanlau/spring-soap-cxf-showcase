@@ -1,5 +1,11 @@
 package com.dp.demo.web.impl;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.jws.soap.SOAPBinding.Style;
@@ -40,6 +46,42 @@ public class BookShelfServiceImpl implements BookShelfService  {
     	bo.setBookName(b.getBookName());
     	bo.setBookId(b.getBookId());
         return bo ;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+    
+    public List<BookVO> findall(){
+    	List<BookVO> detial=new ArrayList<BookVO>();
+    	BookVO b=new BookVO();
+    	b.setAuthor("dp");
+    	b.setBookName("测试返回list！");
+    	BookVO b1=new BookVO();
+    	b1.setAuthor("dp1");
+    	b1.setBookName("测试返回list 1！");
+    	detial.add(b);
+    	detial.add(b1);
+    	
+    	return detial;
+    	
+    }
+    
+    public Map<String, BookVO> findmap(Map<String, String> params){
+    	  Map<String , BookVO> m=new HashMap<String, BookVO>();
+    	  BookVO b=new BookVO();
+      	b.setAuthor("dp2");
+      	b.setBookName("测试返回map！");
+      	BookVO b1=new BookVO();
+      	b1.setAuthor("dp3");
+      	b1.setBookName("测试返回map 2！");
+    	m.put("d2", b);
+    	m.put("d3", b1);
+    	//遍历键，通过键取值
+    	Set<String> set = params.keySet();
+    	for (String key : set) {
+    	 System.out.println("键:"+key+"  值:"+params.get(key));
+    	 BookVO bv=new BookVO();
+    	 bv.setBookName(params.get(key));
+    	 m.put(key, bv);//查看传入参数
+    	}
+    	return m;
     }
 
 

@@ -2,6 +2,9 @@ package com.maingel.soap.repository;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -39,6 +42,13 @@ public class HelloWorldDAOImplTest {
 		
 		this.helloWorldDAO.findUserById(1);
 	}
+	
+	@Test
+	public void testFindAllUser() {
+		logger.info("Execute testFindAllUser!");
+		
+		assertEquals("What size?", 2, this.helloWorldDAO.findAllUser().size());
+	}
 
 	@Test
 	public void testAddUser() {
@@ -49,6 +59,24 @@ public class HelloWorldDAOImplTest {
 		user.setGender(1);
 		user.setAge(20);
 		assertEquals("SUCCESS", this.helloWorldDAO.addUser(user));
+	}
+	
+	@Test
+	public void testAddAllUser() {
+		logger.info("Execute testAddAllUser!");
+		
+		List<User> users = new ArrayList<User>();
+		User user1 = new User();
+		user1.setName("zhangsan");
+		user1.setGender(1);
+		user1.setAge(20);
+		User user2 = new User();
+		user2.setName("lisi");
+		user2.setGender(0);
+		user2.setAge(21);
+		users.add(user1);
+		users.add(user2);		
+		assertEquals("SUCCESS", this.helloWorldDAO.addAllUser(users));
 	}
 
 }

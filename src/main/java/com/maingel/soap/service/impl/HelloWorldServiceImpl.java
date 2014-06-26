@@ -1,5 +1,7 @@
 package com.maingel.soap.service.impl;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,13 @@ public class HelloWorldServiceImpl implements IHelloWorldService {
 		
 		return this.helloWorldDAO.findUserById(id);
 	}
+	
+	@Override
+	public List<User> findAllUser() {
+		logger.info("Execute findAllUser!");
+		
+		return this.helloWorldDAO.findAllUser();
+	}
 
 	@Override
 	@Transactional
@@ -37,6 +46,13 @@ public class HelloWorldServiceImpl implements IHelloWorldService {
 		logger.info("Execute addUser!");
 		
 		return this.helloWorldDAO.addUser(user);
+	}
+
+	@Override
+	public String addAllUser(List<User> users) {
+		logger.info("Execute addAllUser!");
+		
+		return this.helloWorldDAO.addAllUser(users);
 	}
 
 }

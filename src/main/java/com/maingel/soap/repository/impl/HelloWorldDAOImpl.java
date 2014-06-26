@@ -1,5 +1,6 @@
 package com.maingel.soap.repository.impl;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -9,6 +10,7 @@ import javax.sql.DataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
 import org.springframework.stereotype.Repository;
@@ -53,6 +55,25 @@ public class HelloWorldDAOImpl implements IHelloWorldDAO {
 		});
 		return users.get(0);
 	}
+	
+	@Override
+	public List<User> findAllUser() {
+		logger.info("Execute findAllUser!");
+		
+		String findUserSql = " SELECT id, name, gender, age FROM soap_cxf_test_user ";
+		return this.jdbcTemplate.query(findUserSql, new ParameterizedRowMapper<User>() {
+			@Override
+			public User mapRow(ResultSet rs, int rowNum) throws SQLException {
+				User user = new User();
+				user.setId(rs.getLong("id"));
+				user.setName(rs.getString("name"));
+				user.setGender(rs.getInt("gender"));
+				user.setAge(rs.getInt("age"));
+				return user;
+			}
+			
+		});
+	}
 
 	@Override
 	public String addUser(User user) {
@@ -60,6 +81,27 @@ public class HelloWorldDAOImpl implements IHelloWorldDAO {
 		
 		String addUserSql = " INSERT INTO soap_cxf_test_user (name, gender, age) VALUES (?, ?, ?) ";
 		this.jdbcTemplate.update(addUserSql, new Object[]{user.getName(), user.getGender(), user.getAge()});
+		return "SUCCESS";
+	}
+
+	@Override
+	public String addAllUser(final List<User> users) {
+		logger.info("Execute addAllUser!");
+		
+		String addUserSql = " INSERT INTO soap_cxf_test_user (name, gender, age) VALUES (?, ?, ?) ";
+		this.jdbcTemplate.batchUpdate(addUserSql, new BatchPreparedStatementSetter() {
+			@Override
+			public void setValues(PreparedStatement ps, int i) throws SQLException {
+				ps.setString(1, users.get(i).getName());
+				ps.setInt(2, users.get(i).getGender());
+				ps.setInt(3, users.get(i).getAge());
+			}
+			
+			@Override
+			public int getBatchSize() {
+				return users.size();
+			}
+		});
 		return "SUCCESS";
 	}
 

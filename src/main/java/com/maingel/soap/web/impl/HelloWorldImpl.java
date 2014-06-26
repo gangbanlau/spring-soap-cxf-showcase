@@ -1,5 +1,8 @@
 package com.maingel.soap.web.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.jws.WebService;
 
 import org.slf4j.Logger;
@@ -40,6 +43,23 @@ public class HelloWorldImpl implements IHelloWorld {
 	}
 
 	@Override
+	public List<UserDTO> findAllUser() {
+		logger.info("Execute findAllUser!");
+		
+		List<User> us = this.helloWorldService.findAllUser();
+		List<UserDTO> users = new ArrayList<UserDTO>();
+		for(User u : us){
+			UserDTO user = new UserDTO();
+			user.setId(u.getId());
+			user.setName(u.getName());
+			user.setGender(u.getGender());
+			user.setAge(u.getAge());
+			users.add(user);
+		}
+		return users;
+	}
+	
+	@Override
 	public String addUser(UserDTO user) {
 		logger.info("Execute addUser!");
 		
@@ -50,5 +70,21 @@ public class HelloWorldImpl implements IHelloWorld {
 		user.setAge(user.getAge());
 		
 		return this.helloWorldService.addUser(u);
+	}
+
+	@Override
+	public String addAllUser(List<UserDTO> us) {
+		logger.info("Execute addAllUser!");
+		
+		List<User> users = new ArrayList<User>();
+		for(UserDTO u : us){
+			User user = new User();
+			user.setId(u.getId());
+			user.setName(u.getName());
+			user.setGender(u.getGender());
+			user.setAge(u.getAge());
+			users.add(user);
+		}
+		return this.helloWorldService.addAllUser(users);
 	}
 }

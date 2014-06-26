@@ -1,4 +1,4 @@
-package com.maingel.soap.web.impl;
+package com.maingel.soap.web;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.maingel.soap.domain.User;
 import com.maingel.soap.service.IHelloWorldService;
-import com.maingel.soap.web.IHelloWorld;
-import com.maingel.soap.web.UserDTO;
 
 @WebService(endpointInterface = "com.maingel.soap.web.IHelloWorld")
 //@Component(value = "helloWorldImpl")

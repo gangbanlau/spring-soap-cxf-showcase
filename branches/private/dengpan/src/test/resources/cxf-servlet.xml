@@ -36,7 +36,7 @@
     
       <context:component-scan base-package="com.dp.demo" />
     
-    <bean id="helloService" class="com.dp.demo.web.impl.HelloWorldImpl" />  
+    <bean id="helloService" class="com.dp.demo.web.HelloWorldImpl" />  
     <jaxws:endpoint id="helloWService" implementorClass="com.dp.demo.web.HelloWorld" address="/helloworld">  
         <jaxws:implementor>  
             <ref bean="helloService"/>  
@@ -45,7 +45,7 @@
     
     <jaxws:endpoint
        id="bookShelfService"
-       implementor="com.dp.demo.web.impl.BookShelfServiceImpl"
+       implementor="com.dp.demo.web.BookShelfServiceImpl"
        address="/bookshelfservice" />
 
 </beans>  

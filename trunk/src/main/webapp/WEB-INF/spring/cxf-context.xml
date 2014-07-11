@@ -12,4 +12,6 @@
     <bean id="helloWorldImpl" class="com.maingel.soap.web.HelloWorldImpl" />
     
     <jaxws:endpoint id="helloWorld" implementor="#helloWorldImpl" address="/helloWorld"/>
+    <bean id="bookImpl" class="com.maingel.soap.web.BookWSImpl"/>
+    <jaxws:endpoint id="bookquery" implementor="#bookImpl" address="/bookquery"/>
 </beans>

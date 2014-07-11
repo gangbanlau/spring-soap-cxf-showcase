@@ -3,9 +3,6 @@ package com.maingel.soap.web;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.jws.WebMethod;
-import javax.jws.WebParam;
-import javax.jws.WebResult;
 import javax.jws.WebService;
 
 import org.slf4j.Logger;

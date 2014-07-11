@@ -1,10 +1,12 @@
 package com.dp.demo.web;
 
+
 import java.util.List;
 import java.util.Map;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.jws.soap.SOAPBinding.Style;
@@ -22,6 +24,8 @@ public interface BookShelfService {
     public List<BookVO> findall();
     @WebMethod
     public Map<String, BookVO> findmap(Map<String, String> params);
-    
+    @WebMethod
+    public @WebResult(name = "OutputBean") BookVOOutputList  queryBeanList (
+			@WebParam(name = "InputBean") String    InputBean);
     
 }

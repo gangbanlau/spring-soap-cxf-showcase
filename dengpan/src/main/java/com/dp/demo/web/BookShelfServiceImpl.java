@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
+import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.jws.soap.SOAPBinding.Style;
@@ -82,6 +85,20 @@ public class BookShelfServiceImpl implements BookShelfService  {
     	}
     	return m;
     }
+
+	@Override
+	public BookVOOutputList queryBeanList(
+			 String InputBean) {
+		BookVOOutputList output=new BookVOOutputList();
+		List<BookVOOutput> result=new ArrayList<BookVOOutput>();
+		BookVOOutput temp=new BookVOOutput();
+		temp.setAuthor("deng pan");
+		temp.setBookName("Thinking in java ");
+		result.add(temp);
+		output.setList(result);
+		output.setErrorCode("000");
+		return output;
+	}
 
     
    

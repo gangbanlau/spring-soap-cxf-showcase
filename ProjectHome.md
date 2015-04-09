@@ -1,0 +1,1 @@
+Myself JAX-WS Web Services project pattern with Apache CXF and Spring
